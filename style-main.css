@@ -38,8 +38,8 @@ button {
 }
 
 .transition {
- -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-         transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+ -webkit-transition-timing-function: cubic-bezier(0, 0, 0.5, 2);
+         transition-timing-function: cubic-bezier(0, 0, 0.5, 2);
  -webkit-transition-duration: 500ms;
          transition-duration: 500ms;
  background-color: rgba(16, 185, 129, 0.6);
