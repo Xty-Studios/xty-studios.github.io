@@ -1,11 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 
 body {
-  background-color: #000000;
+  background-color: #3b3b3b;
   margin:0px;
   font-family:'Roboto';
   text-align:center;
-  bgcolor:"blue";
+  color:"blue";
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+* {
+  color: #006894
 }
 
 button {
