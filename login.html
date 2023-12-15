@@ -1,0 +1,69 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    .success-message {
+      color: green;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm" onsubmit="login(event)">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+    </div>
+    <div>
+      <input type="submit" value="Login">
+    </div>
+    <div id="loginMessage"></div>
+  </form>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Send login data to the login.php script using fetch API
+      fetch('login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'username='+username+'&password='+password
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data.trim() === "Complete") {
+          displaySuccessMessage('Login successful');
+        } else if (data.trim() === "Incomplete") {
+          displayErrorMessage('Authentication failed');
+        }
+      });
+    }
+
+    function displaySuccessMessage(message) {
+      var loginMessage = document.getElementById('loginMessage');
+      loginMessage.innerText = message;
+      loginMessage.className = 'success-message';
+    }
+
+    function displayErrorMessage(message) {
+      var loginMessage = document.getElementById('loginMessage');
+      loginMessage.innerText = message;
+      loginMessage.className = 'error-message';
+    }
+  </script>
+</body>
+</html>
